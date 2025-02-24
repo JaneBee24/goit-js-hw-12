@@ -1,14 +1,15 @@
 import { defineConfig } from 'vite';
-import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import glob from 'fast-glob';
 
 export default defineConfig(({ command }) => {
   return {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
+    base: '/goit-js-hw-12/',
     root: 'src',
     build: {
       sourcemap: true,
@@ -21,10 +22,7 @@ export default defineConfig(({ command }) => {
             }
           },
           entryFileNames: chunkInfo => {
-            if (chunkInfo.name === 'commonHelpers') {
-              return 'commonHelpers.js';
-            }
-            return '[name].js';
+            return chunkInfo.name === 'commonHelpers' ? 'commonHelpers.js' : '[name].js';
           },
           assetFileNames: assetInfo => {
             if (assetInfo.name && assetInfo.name.endsWith('.html')) {
@@ -39,10 +37,8 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
-      SortCss({
-        sort: 'mobile-first',
-      }),
+      FullReload(['./src/**/*.html']),
+      SortCss({ sort: 'mobile-first' }),
     ],
   };
 });
