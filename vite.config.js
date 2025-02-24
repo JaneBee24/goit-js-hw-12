@@ -14,6 +14,7 @@ export default defineConfig(({ command }) => ({
     sourcemap: true,
     rollupOptions: {
       input: glob.sync('./src/*.html'),
+      external: ["axios"], 
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
