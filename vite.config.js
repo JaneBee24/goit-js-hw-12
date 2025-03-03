@@ -28,7 +28,7 @@ export default defineConfig(({ command }) => {
           },
           assetFileNames: assetInfo => {
             if (assetInfo.name && assetInfo.name.endsWith('.html')) {
-              return '[name].[ext]';
+              return '[name]-[hash].[ext]';
             }
             return 'assets/[name]-[hash][extname]';
           },
@@ -42,6 +42,15 @@ export default defineConfig(({ command }) => {
       SortCss({
         sort: 'mobile-first',
       }),
+      {
+        name: 'custom-headers',
+        configureServer(server) {
+          server.middlewares.use((req, res, next) => {
+            res.setHeader('X-Content-Type-Options', 'nosniff');
+            next();
+          });
+        }
+      }
     ],
   };
 });
