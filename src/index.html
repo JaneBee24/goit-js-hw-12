@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Пошук зображень</title>
-    <link rel="stylesheet" href="./css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Пошук зображень</title>
+  <link rel="stylesheet" href="./css/styles.css" />
 </head>
 <body>
 
-    <form class="search-form">
-        <input type="text" name="query" placeholder="Введіть запит..." required>
-        <button type="submit">Пошук</button>
-    </form>
-    
-    <div class="loader hidden"></div>
-    <button class="load-more hidden">Load more</button>
-    
-    <div class="gallery"></div>
+  <form class="form">
+    <input type="text" name="search-text" placeholder="Search images..." required />
+    <button type="submit">Search</button>
+  </form>
 
-    <script type="module" src="./main.js"></script>
+  <ul class="gallery"></ul>
+
+  <button class="load-more hidden">Load more</button>
+
+  <span class="loader hidden"></span>
+
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
