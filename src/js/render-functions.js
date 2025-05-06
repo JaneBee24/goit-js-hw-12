@@ -5,6 +5,10 @@ const gallery = document.querySelector(".gallery");
 const loader = document.querySelector(".loader"); 
 let lightbox = new SimpleLightbox(".gallery a", { captionsData: "alt", captionDelay: 250 });
 
+export function showLoader() { loader.classList.remove('hidden'); }
+export function hideLoader() { loader.classList.add('hidden'); }
+export function showLoadMoreButton() { loadMoreBtn.classList.remove('hidden'); }
+export function hideLoadMoreButton() { loadMoreBtn.classList.add('hidden'); }
 export function renderGallery(images) {
     const markup = images.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => `
         <li class="photo-card">
