@@ -1,17 +1,26 @@
-<script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
-<link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-CrlV4O_2.js">
-<link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-CWKLx11g.css">
-
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пошук зображень</title>
+  <script type="module" crossorigin src="/goit-js-hw-12/index.js"></script>
+  <link rel="modulepreload" crossorigin href="/goit-js-hw-12/assets/vendor-CrlV4O_2.js">
+  <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/vendor-CWKLx11g.css">
+  <link rel="stylesheet" crossorigin href="/goit-js-hw-12/assets/index-Lf8sY1iT.css">
+</head>
 <body>
-  <form class="form">
-    <input type="text" name="search-text" placeholder="Search images..." required />
-    <button type="submit">Search</button>
-  </form>
 
-  <ul class="gallery"></ul>
+    <form class="form">
+        <input type="text" name="query" placeholder="Введіть запит..." required>
+        <button type="submit">Пошук</button>
+    </form>
 
-  <button class="load-more hidden">Load more</button>
+    <ul class="gallery"></ul>
 
-  <span class="loader hidden"></span>
+    <span class="loader hidden"></span>
+
+    <button class="load-more hidden">Load more</button>
 
 </body>
+</html>
