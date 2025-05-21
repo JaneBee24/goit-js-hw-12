@@ -77,9 +77,10 @@ loadMoreBtn.addEventListener('click', async () => {
 });
 
 function scrollPage() {
-  const { height: cardHeight } = document
-    .querySelector('.gallery li')
-    .getBoundingClientRect();
+  const firstCard = document.querySelector('.gallery li');
+  if (!firstCard) return;
+
+  const { height: cardHeight } = firstCard.getBoundingClientRect();
 
   window.scrollBy({
     top: cardHeight * 2,
